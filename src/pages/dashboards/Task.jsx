@@ -3,6 +3,7 @@ import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { MdOutlineTune } from "react-icons/md";
 import { BsCaretRightFill } from "react-icons/bs";
 import { HiOutlineDotsVertical, HiPlus } from "react-icons/hi";
+import { TaskForm } from "../../components/TaskForm";
 
 // Initial tasks with different statuses
 const initialTasks = {
@@ -14,6 +15,7 @@ const initialTasks = {
 
 export const Task = () => {
   const [tasks, setTasks] = useState(initialTasks);
+  const [isTaskFormOpen, setIsTaskFormOpen] = useState(false);
 
   // Function to handle drag updates (Logs while dragging)
   const onDragUpdate = (update) => {
@@ -52,6 +54,14 @@ export const Task = () => {
     console.log(`Task "${movedTask.title}" moved to "${destination.droppableId}"`);
   };
 
+  const handleAddTask = (newTask) => {
+    // Add task to the 'todo' list by default
+    setTasks(prevTasks => ({
+      ...prevTasks,
+      todo: [...prevTasks.todo, newTask]
+    }));
+  };
+
   return (
     <div className="flex flex-col font-anek p-5 h-screen">
       {/* Header */}
@@ -72,7 +82,10 @@ export const Task = () => {
             <MdOutlineTune className="h-[23px] w-[28px]" />
             Filters
           </button>
-          <button className="text-[19px] font-semibold bg-black text-white rounded-xl w-[124px] justify-center pt-2">
+          <button 
+                        onClick={() => setIsTaskFormOpen(true)}
+
+            className="text-[19px] font-semibold bg-black text-white rounded-xl w-[124px] justify-center pt-2">
             Create
           </button>
         </div>
@@ -125,6 +138,13 @@ export const Task = () => {
           ))}
         </div>
       </DragDropContext>
+
+      {isTaskFormOpen && (
+        <TaskForm 
+          onAddTask={handleAddTask}
+          onClose={() => setIsTaskFormOpen(false)}
+        />
+      )}
     </div>
   );
 };
