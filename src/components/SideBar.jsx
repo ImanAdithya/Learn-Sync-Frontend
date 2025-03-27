@@ -23,8 +23,8 @@ export const SideBar = () => {
     };
 
     return (
-        <div className="bg-[#E9EFF2] flex flex-col font-anek py-7 pl-7 gap-10 ">
-            <h1 className="font-bold text-[25px] pr-7">Learn Sync</h1>
+        <div className="bg-[#E9EFF2] flex flex-col font-anek py-7 pl-12 gap-10 ">
+            <h1 className="font-bold text-[25px] pr-7">Edu Learn</h1>
             <div className="mb-10 flex flex-col gap-2">
                 <h4 className="font-semibold text-[10px] text-gray-400">MAIN</h4>
                 <ul className="flex flex-col gap-2 w-full text-[15px] text-gray-800 font-medium">
@@ -54,9 +54,9 @@ export const SideBar = () => {
                     </Link>
                 </ul>
                 <ul className="flex flex-col gap-2 w-full text-[15px] text-gray-800 font-medium">
-                    <Link to="/team" className={getLinkClasses("/team")}>
+                    <Link to="/exam" className={getLinkClasses("/exam")}>
                         <ImUsers className="w-[23px] h-[18px]"/>
-                        Team
+                        Exam
                     </Link>
                     <Link to="/friends" className={getLinkClasses("/friends")}>
                         <GiThreeFriends className="w-[23px] h-[18px]"/>

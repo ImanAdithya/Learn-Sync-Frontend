@@ -18,12 +18,15 @@ export const Login = () => {
         email,
         password,
       });
-
-      const { token } = response.data;
+      
+      const { token,userId } = response.data;
 
       localStorage.setItem("token", token);
+      localStorage.setItem("userId",userId);
+      console.log(response.data);
+      
 
-      navigate("/task");
+     navigate("/task");
     } catch (err) {
       setError("Invalid credentials or server error");
       console.error(err);

@@ -66,7 +66,7 @@ export const Chat = () => {
                 <div className="flex flex-col border-r border-gray-400 pr-10">
                     <p className="text-[17px] font-semibold">May</p>
                     <p className="text-[13px] font-medium text-gray-700">
-                        Today is Saturday, May 9th, 2025
+                        Today is {new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
                     </p>
                 </div>
                 <div className="flex pl-5 items-center gap-2 flex-1">

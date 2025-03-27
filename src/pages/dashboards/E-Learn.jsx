@@ -29,7 +29,7 @@ export const ELearn = () => {
                 <div className="flex flex-col border-r border-gray-400 pr-10">
                     <h1 className="text-[20px] font-semibold">May</h1>
                     <h4 className="text-[15px] font-medium text-gray-700">
-                        Today is Saturday, May 9th, 2025
+                        Today is {new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
                     </h4>
                 </div>
                 <div className="flex pl-5 items-center gap-2 flex-1">

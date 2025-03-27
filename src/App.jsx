@@ -12,6 +12,8 @@ import {ELearn} from "./pages/dashboards/E-Learn.jsx";
 import {Group} from "./pages/dashboards/Group.jsx";
 import {Dashboard} from "./pages/dashboards/Dashboard.jsx";
 import {Schedule} from "./pages/dashboards/Schedule.jsx";
+import { Exam } from './pages/dashboards/Exam.jsx';
+import { QuizPage } from './pages/dashboards/QuizPage.jsx';
 
 function App() {
 
@@ -38,6 +40,8 @@ function App() {
                 {path:"/chat", element: <Chat/>},
                 {path:"/e-learn", element: <ELearn/>},
                 {path:"/group", element: <Group/>},
+                {path:"/exam", element: <Exam/>},
+                {path:"/quiz", element: <QuizPage/>},
             ]
         }
     ])
