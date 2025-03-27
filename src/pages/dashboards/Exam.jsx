@@ -7,7 +7,7 @@ export const Exam = () => {
   const [selectedSubject, setSelectedSubject] = useState(null);
   const [examStarted, setExamStarted] = useState(false);
 
-  const naviagte=useNavigate();
+  const navigate=useNavigate();
 
   const gradeSubjects = {
     '1-5': {
@@ -101,7 +101,12 @@ export const Exam = () => {
 
   // Handle exam start
   const handleStartExam = () => {
-    naviagte('/quiz');
+    navigate('/quiz', { 
+      state: { 
+        selectedGrade, 
+        selectedSubject 
+      } 
+    });
     console.log(`Starting Exam for Grade ${selectedGrade} - ${selectedSubject}`);
   };
 
@@ -117,7 +122,20 @@ export const Exam = () => {
       
       {/* Grade Selection Section */}
       <div className="mb-8">
-        <h3 className="text-xl font-semibold mb-4">Select Your Grade</h3>
+        <div className='flex flex-row justify-between items-center'>
+           <h3 className="text-xl font-semibold mb-4">Select Your Grade</h3>
+          <div>
+          {selectedSubject && (
+        <div className="flex">
+          <h4 className="text-xl font-bold text-blue-800 mb-2">
+            Your Selection : <span> Grade: {selectedGrade} {selectedSubject}</span>
+          </h4>
+          
+        </div>
+      )}
+          </div>
+        </div>
+        
         <div className="grid grid-cols-7 gap-4">
           {[...Array(13).keys()].map((index) => (
             <GradeCard key={index + 1} grade={index + 1} />
@@ -141,13 +159,7 @@ export const Exam = () => {
 
       {/* Selection Summary with Start Exam Button */}
       {selectedSubject && (
-        <div className="mt-8 p-6 bg-blue-50 rounded-lg text-center">
-          <h4 className="text-2xl font-bold text-blue-800 mb-2">
-            Your Selection
-          </h4>
-          <p className="text-xl mb-4">
-            Grade: {selectedGrade} | Subject: {selectedSubject}
-          </p>
+
           <button 
             onClick={handleStartExam}
             className="
@@ -158,12 +170,13 @@ export const Exam = () => {
               hover:bg-green-600 
               transition-colors 
               duration-300
+              mt-10
             "
           >
             <Play className="mr-2" size={24} />
-            Start Exam
+                Start Exam
           </button>
-        </div>
+    
       )}
     </div>
   );

@@ -7,7 +7,7 @@ export const Chat = () => {
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const API_KEY = "AIzaSyDQx4p3UpBn_AsazdOSMOegvqoFd4nUE-I"; // Replace with your actual API key
+    const API_KEY = "AIzaSyDQx4p3UpBn_AsazdOSMOegvqoFd4nUE-I"; 
 
     const sendMessage = async () => {
         if (!input.trim()) return;
